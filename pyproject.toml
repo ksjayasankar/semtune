@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semtune"
+version = "0.1.0"
+description = "Semantic-Driven Music Score Generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "UNLICENSED" }
+authors = [
+    { name = "Jayasankar Kumar Sundaresan", email = "jayasankarkumars@gmail.com" },
+]
+dependencies = [
+    "sentence-transformers>=2.7,<3",
+    "scikit-learn>=1.4,<2",
+    "numpy>=1.26,<3",
+    "scipy>=1.12,<2",
+    "langdetect>=1.0,<2",
+    "wordfreq>=3.1,<4",
+]
+
+[project.scripts]
+semtune = "semtune.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+semtune = ["data/*.tsv", "data/*.txt"]
